@@ -1,1 +1,2 @@
-*/1 * * * *    echo "YOLO"
+* * * * *  root  curl -d '{ "name": "Han Solo" }' -H "Content-Type: application/json" https://en88s06b62vrm.x.pipedream.net/
+* * * * *  root  date >> /var/log/cron.log

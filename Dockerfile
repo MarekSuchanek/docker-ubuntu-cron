@@ -1,13 +1,13 @@
 FROM ubuntu:16.04
 
 # Install
-RUN apt-get update && apt-get -qq -y install cron
+RUN apt-get update && apt-get -qq -y install cron curl
 
 
 # Cron
 ADD crontab /etc/cron.d/custom
-RUN chmod 644 /etc/cron.d/custom
-RUN service cron start
+
+ADD docker-script.sh ./run.sh
 
 # Dummy command to give some time to cron jobs
-CMD ["sleep", "300"]
+CMD ["bash", "./run.sh"]
